@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css3</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+            list-style: none;
+        }
+        /*
+        border-radius: 左上角（水平方向 垂直方向） 右上角（水平方向 垂直方向） 右下角（水平方向 垂直方向） 左下角（水平方向 垂直方向）
+
+        盒子阴影：性能杀手，少用
+        box-shadow: （可以设置四个方向） X偏移量 Y偏移量 [模糊半径] [扩展半径] [颜色] [投影方式（向内（inset）/外投影（默认）]
+        text-shdow: X偏移量 Y偏移量 模糊程度（blur） 颜色
+
+        渐变颜色：
+            线性渐变：
+            background: linear-gradient(方向（可以用角度值 to top/left/right）， 颜色1 百分比值， 颜色2 百分比值， 颜色3 百分比值， 。。。。)
+            径向渐变：
+            background： radial-gradient(渐变方式circle（渐变范围的半径）/ellipse（椭圆 X Y） at X Y, 颜色1 目标位置1， 颜色2 目标位置2.。。。。。。)
+
+        文本强制换行：
+            word-wrap： break-word
+
+        字体样式引用：
+            @font-face {
+                font-family： '字体名称'；
+                src： url(字体文件存在的路径)
+            }
+            font-family：'上面定义的字体名称';
+
+        边框背景图片：
+            border-image： url（路径）切割像素值 repeat/round
+
+        背景图片其实位置：
+            默认从padding区域开始引入
+            background-origin： border-box/padding-box/content-box
+
+        裁剪背景图片：
+            background-vlip： content-box/padding-box/border-box
+
+        字体添加背景：
+            webkit独有
+
+        背景图片尺寸：
+            background-size： 像素值/百分比/auto/cover/contain
+
+
+        css3选择器：
+            li[attrName = '属性值']
+
+        body ul li:first-child(第一个子元素)/first-of-type(这一类型元素的第一个)
+            last-child/last-of-type
+            nth-child(n/even/odd/2n-1)/nth-of-tyle()
+            nth-last-child(从后面开始数)/nth-of-type()
+            only-child（唯一一个子元素）/only-of-type(这一类型是唯一一个)
+
+        状态伪类选择器：
+            enabled/disable --表单元素
+            checked/
+
+            read-only（只读）/read-write
+
+        伪元素选择器：
+            first-letter（第一个字符）/first-line（第一行）
+            selecion（被选中的元素）
+            user-select： none（禁止选中）
+
+        +：后边紧挨着的兄弟节点
+        ~：下边所有的兄弟节点
+        *： 任意一个元素
+        ^/$: 以什么开头/结尾
+         */
+        /* 选项卡css */
+
+        .wrapper {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            border: 1px solid black;
+            margin: 50px 0 0 400px;
+            text-align: center;
+        }
+
+        .wrapper input {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+        }
+
+        .wrapper div {
+            position: absolute;
+            top: 30px;
+            left: 0px;
+            width: 400px;
+            height: 370px;
+            line-height: 370px;
+            display: none;
+        }
+
+        .wrapper div:nth-of-type(1) {
+            background: pink;
+        }
+
+        .wrapper div:nth-of-type(2) {
+            background: yellow;
+        }
+
+        .wrapper div:nth-of-type(3) {
+            background: #f40;
+        }
+
+        .wrapper div:nth-of-type(4) {
+            background: #888;
+        }
+
+        input:checked+div {
+            display: block;
+        }
+        /* 导航栏css */
+
+        .ul_wrapper {
+            display: inline-block;
+            margin-top: 50px;
+        }
+
+        .ul_wrapper ul {
+            display: inline-block;
+            background: rgba(255, 165, 0, 1);
+            border-radius: 7px;
+            box-shadow: 3px 3px 3px #666;
+            text-shadow: 2px 2px 3px #aaa;
+        }
+
+        .ul_wrapper li {
+            display: inline-block;
+            font-size: 18px;
+            padding: 0 20px;
+            margin: 8px 0px;
+            border-right: 1px dashed #fff;
+            word-wrap: break-word;
+            cursor: pointer;
+        }
+
+        .ul_wrapper li:last-child {
+            border: none;
+        }
+        /* 钟表盘css */
+
+        .clock_wrapper .box {
+            position: absolute;
+            top: 100px;
+            left: 100px;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #333;
+            border-radius: 50%;
+        }
+
+        .clock_wrapper li {
+            position: absolute;
+            top: 0px;
+            left: 99.5px;
+            display: inline-block;
+            width: 1px;
+            height: 5px;
+            background: #333;
+            transform-origin: 2px 100px;
+        }
+
+        .clock_wrapper li:nth-of-type(5n + 1) {
+            left: 98px;
+            width: 4px;
+            height: 10px;
+        }
+
+        span {
+            display: inline-block;
+            font-size: 18px;
+        }
+        /* 钟表指针css */
+
+        .box div {
+            transform-origin: bottom;
+        }
+
+        .box .hour_pin {
+            position: absolute;
+            top: 40px;
+            left: 95px;
+            width: 10px;
+            height: 60px;
+            background: #000;
+            border-top-left-radius: 5px 30px;
+            border-top-right-radius: 5px 30px;
+        }
+
+        .box .min_pin {
+            position: absolute;
+            top: 30px;
+            left: 97px;
+            width: 6px;
+            height: 70px;
+            background: #555;
+            border-top-left-radius: 3px 35px;
+            border-top-right-radius: 3px 35px;
+        }
+
+        .box .sec_pin {
+            position: absolute;
+            top: 10px;
+            left: 99px;
+            width: 2px;
+            height: 90px;
+            background: #999;
+        }
+
+        .box .center_btn {
+            position: absolute;
+            top: 92px;
+            left: 92px;
+            width: 16px;
+            height: 16px;
+            background: rgba(211, 151, 123, 0.9);
+            border-radius: 50%;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 选项卡功能 -->
+    <div class="wrapper">
+        <input type="radio" name="test" checked>
+        <div class="demo">我是第一个</div>
+        <input type="radio" name="test">
+        <div class="demo">我是第二个</div>
+        <input type="radio" name="test">
+        <div class="demo">我是第三个</div>
+        <input type="radio" name="test">
+        <div class="demo">我是最后一个</div>
+    </div>
+
+    <!-- 导航栏功能 -->
+    <div class="ul_wrapper">
+        <ul>
+            <li>Home</li>
+            <li>About me</li>
+            <li>Portfolio</li>
+            <li>Blog</li>
+            <li>Resources</li>
+            <li>Contact me</li>
+        </ul>
+    </div>
+
+    <!-- 钟表盘功能 -->
+    <div class="clock_wrapper">
+        <div class="box">
+            <ul>
+                <li class="clock"><span>12</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>1</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>2</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>3</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>4</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>5</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>6</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>7</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>8</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>9</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>10</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"><span>11</span></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+                <li class="clock"></li>
+            </ul>
+            <div class="hour_pin"></div>
+            <div class="min_pin"></div>
+            <div class="sec_pin"></div>
+            <div class="center_btn"></div>
+        </div>
+    </div>
+
+    <script>
+        var clock = {
+            init: function () {
+                var nowDate = new Date();
+                this.oLiArr = document.getElementsByClassName('clock');
+                this.oSpanArr = document.getElementsByTagName('span');
+                this.oHourPin = document.getElementsByClassName('hour_pin')[0];
+                this.oMinPin = document.getElementsByClassName('min_pin')[0];
+                this.oSecPin = document.getElementsByClassName('sec_pin')[0];
+                this.hourDeg = (nowDate.getHours() > 12 ? nowDate.getHours() - 12 : nowDate.getHours()) * 30 + nowDate.getMinutes() / 2;
+                this.minDeg = nowDate.getMinutes() * 6;
+                this.secDeg = nowDate.getSeconds() * 6;
+                this.secStep = 0;
+                for (var i = 0; i < this.oLiArr.length; i++) {
+                    this.oLiArr[i].style.transform = 'rotate(' + i * 6 + 'deg)';
+                }
+                for(var j = 0; j < this.oSpanArr.length; j ++) {
+                    this.oSpanArr[j].style.transform = 'translate(-9px, 3px) rotate(' + (-j * 30) + 'deg)';
+                }
+                this.updatePins();
+                this.timeRun();
+            },
+
+            updatePins: function () {
+                this.oSecPin.style.transform = 'rotate(' + this.secDeg + 'deg)';
+                this.oMinPin.style.transform = 'rotate(' + this.minDeg + 'deg)';
+                this.oHourPin.style.transform = 'rotate(' + this.hourDeg + 'deg)';
+            },
+
+            timeRun: function () {
+                var _this = this;
+                var timer = setInterval(function () {
+                    if (_this.secDeg == 360) {
+                        _this.secDeg = 6;
+                    } else {
+                        _this.secDeg += 6;
+                    }
+                    _this.secStep ++;
+                    if (_this.secStep == 60) {
+                        if (_this.minDeg == 360) {
+                            _this.minDeg = 6;
+                        } else {
+                            _this.minDeg += 6;
+                        }
+                        if (_this.hourDeg == 360) {
+                            _this.hourDeg = 0.5;
+                        } else {
+                            _this.hourDeg += 0.5;
+                        }
+                        _this.secStep = 0;
+                    }
+                    _this.updatePins();
+                }, 1000);
+            }
+        }
+
+        clock.init();
+    </script>
+</body>
+
+</html>

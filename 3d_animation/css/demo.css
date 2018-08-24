@@ -1,0 +1,190 @@
+* {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+:root {
+    background: #666;
+}
+
+.wrapper {
+    margin: 100px auto 0 auto;
+    width: 800px;
+    height: 600px;
+    border: 1px solid #fff;
+}
+
+.wrapper ul {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 10px;
+    height: 580px;
+    border: 1px solid black;
+}
+
+.wrapper ul li {
+    position: relative;
+    margin: 10px;
+    height: 200px;
+    width: 200px;
+    perspective: 500px;
+
+    overflow: hidden;
+}
+
+.wrapper ul li .pic_box {
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transform-origin: 50% 50% -100px;
+    /* transform: rotate3d(0, 1, 0, 45deg); */
+}
+
+.wrapper ul li .pic_box img {
+    width: 100%;
+    height: 100%;
+    /* opacity: 0.3; */
+}
+
+.wrapper ul li .pic_box div {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    line-height: 200px;
+    font-size: 20px;
+    color: #fff;
+    background-color: #000;
+    transform: translate3d(0,0,-100px);
+}
+
+.wrapper ul .in-top .pic_box div {
+    transform-origin: bottom;
+    transform: translate3d(0, -100%, 0) rotate3d(1, 0, 0, 90deg);
+}
+.wrapper ul .in-bottom .pic_box div {
+    transform-origin: top;
+    transform: translate3d(0, 100%, 0) rotate3d(1, 0, 0, -90deg);
+}
+.wrapper ul .in-left .pic_box div {
+    transform-origin: right;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 1, 0, -90deg);
+}
+.wrapper ul .in-right .pic_box div {
+    transform-origin: left;
+    transform: translate3d(100%, 0, 0) rotate3d(0, 1, 0, 90deg);
+}
+
+.wrapper ul .out-top .pic_box div {
+    transform-origin: bottom;
+    transform: translate3d(0, -100%, 0) rotate3d(1, 0, 0, 90deg);
+}
+.wrapper ul .out-bottom .pic_box div {
+    transform-origin: top;
+    transform: translate3d(0, 100%, 0) rotate3d(1, 0, 0, -90deg);
+}
+.wrapper ul .out-left .pic_box div {
+    transform-origin: right;
+    transform: translate3d(-100%, 0, 0) rotate3d(0, 1, 0, -90deg);
+}
+.wrapper ul .out-right .pic_box div {
+    transform-origin: left;
+    transform: translate3d(100%, 0, 0) rotate3d(0, 1, 0, 90deg);
+}
+
+.wrapper ul .in-top .pic_box {
+    animation: in-top 0.3s linear forwards;
+}
+.wrapper ul .in-bottom .pic_box {
+    animation: in-bottom 0.3s linear forwards;
+}
+.wrapper ul .in-right .pic_box {
+    animation: in-right 0.3s linear forwards;
+}
+.wrapper ul .in-left .pic_box {
+    animation: in-left 0.3s linear forwards;
+}
+
+@keyframes in-top {
+    0% {
+        transform: rotate3d(1, 0, 0, 0deg)
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, -90deg)
+    }
+}
+@keyframes in-bottom {
+    0% {
+        transform: rotate3d(1, 0, 0, 0deg)
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 90deg)
+    }
+}
+@keyframes in-right {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg)
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, -90deg)
+    }
+}
+@keyframes in-left {
+    0% {
+        transform: rotate3d(0, 1, 0, 0deg)
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 90deg)
+    }
+}
+
+.wrapper ul .out-top .pic_box {
+    animation: out-top 0.3s linear;
+}
+.wrapper ul .out-bottom .pic_box {
+    animation: out-bottom 0.3s linear;
+}
+.wrapper ul .out-right .pic_box {
+    animation: out-right 0.3s linear;
+}
+.wrapper ul .out-left .pic_box {
+    animation: out-left 0.3s linear;
+}
+
+@keyframes out-top {
+    0% {
+        transform: rotate3d(1, 0, 0, -90deg)
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 0deg)
+    }
+}
+@keyframes out-bottom {
+    0% {
+        transform: rotate3d(1, 0, 0, 90deg)
+    }
+    100% {
+        transform: rotate3d(1, 0, 0, 0deg)
+    }
+}
+@keyframes out-right {
+    0% {
+        transform: rotate3d(0, 1, 0, -90deg)
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 0deg)
+    }
+}
+@keyframes out-left {
+    0% {
+        transform: rotate3d(0, 1, 0, 90deg)
+    }
+    100% {
+        transform: rotate3d(0, 1, 0, 0deg)
+    }
+}

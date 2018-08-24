@@ -1,0 +1,114 @@
+{
+    "data": {
+        "seatList": [
+            {
+                "seatNumber": "0001",
+                "seatPosition": "教学楼309-3排1号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0002",
+                "seatPosition": "教学楼309-3排2号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0003",
+                "seatPosition": "教学楼309-3排3号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0004",
+                "seatPosition": "教学楼309-3排4号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0005",
+                "seatPosition": "教学楼309-7排1号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0006",
+                "seatPosition": "教学楼309-7排2号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0007",
+                "seatPosition": "教学楼309-7排3号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0008",
+                "seatPosition": "教学楼309-7排4号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0009",
+                "seatPosition": "教学楼309-8排1号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0010",
+                "seatPosition": "教学楼309-8排2号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0011",
+                "seatPosition": "教学楼309-8排3号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            },
+            {
+                "seatNumber": "0012",
+                "seatPosition": "教学楼309-8排4号",
+                "available": true,
+                "seatState": {
+                    "userName": "",
+                    "userStatus": ""
+                }
+            }
+        ]
+    }
+}

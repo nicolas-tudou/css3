@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Transform</title>
+    <style>
+        * {
+            margin: 0px;
+        }
+
+
+        /*
+        transform：
+            旋转（默认Z轴旋转）：rotateX/rotateY/rotateZ/rotate3d(x, y, z, 90deg)
+            缩放（默认X轴和Y轴旋转，第二个参数不写的话默认与第一个参数一样）：scaleX/Y/Z/3d（0-1表示缩小 大于1表示放大 小于0方向翻转）
+            扭曲（默认x，y，第二个参数不写为0）：skewX/Y（90deg）
+            平移（默认x，y，第二个参数不写为0）：translateX/Y/Z/3d（像素值/百分比）
+            改变旋转的中心点（默认是x，y的重点）：transform-orgin：
+
+        过度动画：transition
+            transition-property（需要过度的属性）：
+            transition-duration（过度所需的时间）：
+            transition-timing-function（制定过度函数）： linear（匀速） ease（慢快慢） ease-in（慢速开始） ease-out（慢速结束） ease-in-out（慢速开始和结束）
+            transition-delay（制定开始过度的延时事件）：
+            cubic-bezier（过度函数）： 四个参数（）
+
+        animation： name 时间 函数 延时 方向（normal/reverse/alternate（奇数次正向偶数次反向）/alternate-reverse） 运动次数/ifinite
+            animate-play-state： tunning/paused
+            animation-fill-mode（动画开始和结束时的操作）：
+                forwards：动画完成后停留在最后关键帧位置上
+                backwards：立即运用开始的关键帧，有延时是在第一个关键帧上等待
+                both：同时具有forwards和backwards
+        @keyframes name {
+            0% {
+            }
+            50% {
+            }
+            100% {
+
+            }
+        }
+
+
+        */
+
+        .wrapper {
+            border: 1px solid black;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            background: #777;
+            margin: 100px auto;
+            transform-origin: top;
+            transform: rotate(60deg);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="box"></div>
+
+
+    </div>
+</body>
+</html>
